@@ -13,11 +13,12 @@ PaStream* openStream() {
   int i;
   err = Pa_Initialize();
   ndev = Pa_GetDeviceCount();
+  printf("List of available output devices:\n");
   for(i=0; i<ndev;i++) {
     info = Pa_GetDeviceInfo((PaDeviceIndex) i);
     if(info->maxOutputChannels > 0) printf("output device %d: %s\n", i, info->name);
   }
-  printf("Choose output device:");
+  printf("Choose the number of the output device you want to use:");
   scanf("%d", &devout); 
   memset(&param, 0, sizeof(PaStreamParameters));
   param.device = (PaDeviceIndex) devout;

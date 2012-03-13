@@ -15,9 +15,13 @@ int main(int argc, char* argv[]) {
   FILE *inputFile;
   notes = 0;
   index = 0;
+  if(argc != 2) {
+    printf("Invalid number of arguments!\nUsage: poemic filename.txt\n");
+    exit(-1);
+  }
   inputFile = fopen(argv[1], "r");
   if (inputFile==NULL) {
-    printf("Error opening input filen\n");
+    printf("Error opening input file!\n");
     exit(-1);
   } else {
     do {
